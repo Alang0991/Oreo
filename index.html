@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bluey / Oreo — About Me</title>
+
+  <style>
+    /* ---------- THEME TOKENS ---------- */
+    :root{
+      color-scheme: light dark;
+      --bg: #0b1220;
+      --bg2:#070b14;
+      --text:#e7eefc;
+      --muted:#b9c6e6;
+      --card: rgba(255,255,255,.06);
+      --cardBorder: rgba(255,255,255,.12);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --accent:#6aa7ff;       /* baby-blue vibe */
+      --accent2:#93c5fd;
+      --chip: rgba(106,167,255,.16);
+      --chipBorder: rgba(106,167,255,.30);
+      --danger: #ff6b6b;
+      --radius: 18px;
+    }
+
+    [data-theme="light"]{
+      color-scheme: light;
+      --bg:#f6f9ff;
+      --bg2:#eef4ff;
+      --text:#0b1220;
+      --muted:#3a4a6a;
+      --card: rgba(255,255,255,.78);
+      --cardBorder: rgba(11,18,32,.10);
+      --shadow: 0 14px 28px rgba(11,18,32,.12);
+      --chip: rgba(106,167,255,.12);
+      --chipBorder: rgba(106,167,255,.25);
+      --danger:#d64545;
+    }
+
+    /* ---------- BASE ---------- */
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 600px at 20% 10%, rgba(106,167,255,.28), transparent 55%),
+        radial-gradient(900px 600px at 80% 0%, rgba(147,197,253,.22), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a{ color: var(--accent); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .container{
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 22px 0 56px;
+    }
+
+    /* ---------- TOP BAR ---------- */
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      padding: 14px 0;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(0,0,0,.25), transparent);
+    }
+
+    [data-theme="light"] .topbar{
+      background: linear-gradient(180deg, rgba(246,249,255,.85), rgba(246,249,255,0));
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .avatar{
+      width: 38px; height: 38px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 30%, var(--accent2), var(--accent));
+      box-shadow: var(--shadow);
+      flex: 0 0 auto;
+    }
+
+    .brand h1{
+      font-size: 16px;
+      margin:0;
+      letter-spacing: .2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand .sub{
+      display:block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .actions{
+      display:flex;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+
+    .btn{
+      appearance:none;
+      border: 1px solid var(--cardBorder);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: 600;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      box-shadow: 0 10px 20px rgba(0,0,0,.12);
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18); }
+    [data-theme="light"] .btn{ background: rgba(255,255,255,.55); }
+    [data-theme="light"] .btn:hover{ background: rgba(255,255,255,.75); border-color: rgba(11,18,32,.14); }
+
+    /* ---------- HERO ---------- */
+    .hero{
+      margin-top: 10px;
+      border: 1px solid var(--cardBorder);
+      background: linear-gradient(135deg, rgba(106,167,255,.18), rgba(255,255,255,.02));
+      border-radius: calc(var(--radius) + 8px);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .hero h2{
+      margin:0 0 8px 0;
+      font-size: clamp(24px, 3.6vw, 36px);
+      letter-spacing: .2px;
+    }
+
+    .hero p{
+      margin: 0 0 14px 0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 70ch;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .chip{
+      border: 1px solid var(--chipBorder);
+      background: var(--chip);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .chip strong{ font-weight: 700; }
+
+    /* ---------- GRID OF CARDS ---------- */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (min-width: 860px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+      .span2{ grid-column: 1 / -1; }
+    }
+
+    .card{
+      border: 1px solid var(--cardBorder);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 16px;
+      overflow:hidden;
+    }
+
+    .card h3{
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+
+    .card p{ margin: 0 0 10px 0; color: var(--muted); }
+    .card p:last-child{ margin-bottom: 0; }
+
+    .list{
+      margin: 10px 0 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .list li{ margin: 6px 0; }
+
+    .divider{
+      height:1px;
+      background: rgba(255,255,255,.12);
+      margin: 14px 0;
+    }
+    [data-theme="light"] .divider{ background: rgba(11,18,32,.10); }
+
+    /* ---------- ALTER CARDS ---------- */
+    .alter{
+      border-left: 4px solid var(--accent);
+      padding-left: 14px;
+    }
+
+    .tagline{
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: -6px;
+      margin-bottom: 10px;
+    }
+
+    /* ---------- NOTICE BOXES ---------- */
+    .notice{
+      border-radius: 14px;
+      padding: 12px 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+    }
+    [data-theme="light"] .notice{
+      background: rgba(255,255,255,.6);
+      border-color: rgba(11,18,32,.12);
+    }
+    .notice strong{ color: var(--text); }
+
+    .notice.danger{
+      border-color: rgba(255,107,107,.35);
+      background: rgba(255,107,107,.08);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer{
+      margin-top: 18px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+    footer .mini{
+      margin-top: 6px;
+      opacity: .9;
+    }
+
+    /* ---------- ACCESSIBILITY ---------- */
+    :focus-visible{
+      outline: 3px solid rgba(106,167,255,.45);
+      outline-offset: 3px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand" aria-label="Site header">
+        <div class="avatar" aria-hidden="true"></div>
+        <div style="min-width:0;">
+          <h1>Bluey / Oreo</h1>
+          <span class="sub">A small about-me page 💙</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span aria-hidden="true">🌓</span>
+          <span id="themeLabel">Theme</span>
+        </button>
+      </div>
+    </div>
+
+    <section class="hero" role="region" aria-label="Intro">
+      <h2>Hi, I’m Bluey (also known as Oreo)</h2>
+      <p>
+        Some people also call me <strong>Ace</strong> or <strong>Salty</strong> — all of these names are okay to use.
+        This page is here so friends can understand me better and interact respectfully.
+      </p>
+
+      <div class="chips" aria-label="Quick facts">
+        <div class="chip"><strong>Pronouns:</strong> he/him • they/them</div>
+        <div class="chip"><strong>Identity:</strong> furry • gay • ace • demi</div>
+        <div class="chip"><strong>Birthday:</strong> March 15th (I’m getting old 😅)</div>
+        <div class="chip"><strong>Fav color:</strong> baby blue</div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Content">
+      <!-- Mental health -->
+      <article class="card span2">
+        <h3>🧠 Mental Health</h3>
+        <p>
+          I live with several mental health challenges. It can be hard sometimes, but I do a lot to keep going.
+          This doesn’t define me — it’s just part of my life.
+        </p>
+        <ul class="list">
+          <li>OCD</li>
+          <li>Depression</li>
+          <li>Anxiety</li>
+          <li>D.I.D (and more)</li>
+        </ul>
+      </article>
+
+      <!-- DID explanation -->
+      <article class="card span2">
+        <h3>🧩 About D.I.D</h3>
+        <p>
+          Dissociative Identity Disorder (D.I.D) can develop as a response to long-term trauma, usually during childhood.
+          It’s a protective coping mechanism when situations feel overwhelming or unsafe.
+        </p>
+        <div class="notice">
+          <strong>Note:</strong> I’ve been diagnosed for about <strong>4 years</strong>, so I’m still learning about myself and my system.
+          Respectful questions are welcome.
+        </div>
+      </article>
+
+      <!-- Alters heading -->
+      <article class="card span2">
+        <h3>🌱 My System (3 Alters)</h3>
+        <p class="tagline">Each alter matters. Please treat them with respect and follow boundaries.</p>
+
+        <div class="divider"></div>
+
+        <section class="alter" aria-label="Max">
+          <h3>🛡 Max</h3>
+          <p>
+            Protective side of the system. Ace, aromantic, demi, and gay. Same age as the host/body.
+            Quiet, observant, and can be sweet/caring (often a father-figure mindset).
+          </p>
+          <div class="notice danger">
+            <strong>Boundary:</strong> Do <strong>not</strong> touch at all — he is the protective side.
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="alter" aria-label="Drake">
+          <h3>📖 Drake</h3>
+          <p>
+            Gay, ace, aromantic, and demi. Same age as the host. Likes to read and draw.
+            Often quiet. Not mute, but uses very short/minimal words when speaking.
+          </p>
+          <div class="notice">
+            <strong>Boundary:</strong> Not very touchy — please ask first.
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="alter" aria-label="Jamie">
+          <h3>💙 Jamie</h3>
+          <p>
+            Age-locked at 8. Mute — in games like VRChat he uses chat-box.
+            Clingy, kind, sweet, and asks lots of questions. Innocent, so please be careful.
+            Can get shy/worried/nervous if crowded or overwhelmed. Sticks to one safe person.
+            Loves baby blue and cuddles.
+          </p>
+          <div class="notice">
+            <strong>Tip:</strong> Keep things calm and gentle. Give space if overwhelmed.
+          </div>
+        </section>
+      </article>
+
+      <!-- Boundaries -->
+      <article class="card">
+        <h3>🚧 Boundaries</h3>
+        <p><strong>No matter what, please ask before anything.</strong></p>
+        <ul class="list">
+          <li>Petting</li>
+          <li>Hugging</li>
+          <li>Touching</li>
+          <li>Adding me on VRChat</li>
+          <li>Adding me on other websites/apps</li>
+        </ul>
+        <div class="notice">
+          <strong>Consent matters</strong> every time — thank you for respecting it.
+        </div>
+      </article>
+
+      <!-- Support -->
+      <article class="card">
+        <h3>🤍 How to Support Me</h3>
+        <ul class="list">
+          <li>If I go quiet, please don’t assume I’m upset</li>
+          <li>Sometimes I need reassurance</li>
+          <li>Giving me time helps more than pushing answers</li>
+          <li>Patience means a lot to me</li>
+        </ul>
+      </article>
+
+      <!-- Interests -->
+      <article class="card span2">
+        <h3>🎮 Interests & Comfort Things</h3>
+        <ul class="list">
+          <li><strong>Favorite color:</strong> baby blue</li>
+          <li>Music</li>
+          <li>Games (keeps my mind busy and helps me focus on something else)</li>
+          <li>Photography</li>
+          <li>Watching a movie quietly / muted</li>
+        </ul>
+      </article>
+
+      <!-- System rules / safety -->
+      <article class="card span2">
+        <h3>📌 System Rules & Safety</h3>
+        <div class="notice">
+          <strong>Questions are okay:</strong> people can ask respectful questions — I’m still learning too.
+        </div>
+        <div style="height:10px"></div>
+        <div class="notice danger">
+          <strong>Please never:</strong> speak sexually, threaten, make comments about rape,
+          accuse me of attention-seeking, or anything along those lines.
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <div>Thanks for reading 💙</div>
+      <div class="mini">Made for friends who care.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Theme toggle with persistence
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const label = document.getElementById('themeLabel');
+
+      function setTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        label.textContent = theme === 'light' ? 'Light' : 'Dark';
+        toggle.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+      }
+
+      // Prefer saved theme; otherwise match system preference
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') {
+        setTheme(saved);
+      } else {
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        setTheme(prefersLight ? 'light' : 'dark');
+      }
+
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') || 'dark';
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+    })();
+  </script>
+</body>
+</html>
