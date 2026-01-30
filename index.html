@@ -6,7 +6,6 @@
   <title>Bluey / Oreo — About Me</title>
 
   <style>
-    /* ---------- THEME TOKENS ---------- */
     :root{
       color-scheme: light dark;
       --bg: #0b1220;
@@ -85,7 +84,7 @@
     .brand h1{ font-size:16px; margin:0; }
     .brand .sub{ font-size:12px; color:var(--muted); }
 
-    .actions{ display:flex; gap:10px; }
+    .actions{ display:flex; gap:10px; flex-wrap:wrap; }
 
     .btn{
       border:1px solid var(--cardBorder);
@@ -97,6 +96,7 @@
       font-weight:600;
       display:inline-flex;
       gap:8px;
+      text-decoration:none;
     }
 
     .hero{
@@ -153,202 +153,241 @@
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
 
-    <div class="topbar">
-      <div class="brand">
-        <div class="avatar"></div>
-        <div>
-          <h1>Bluey / Oreo</h1>
-          <span class="sub">A small about-me page 💙</span>
-        </div>
-      </div>
-      <div class="actions">
-        <button class="btn" id="listenBtn">🔊 Listen</button>
-        <button class="btn" id="stopBtn">⏹ Stop</button>
-        <button class="btn" id="themeToggle">🌓 Theme</button>
+  <div class="topbar">
+    <div class="brand">
+      <div class="avatar"></div>
+      <div>
+        <h1>Bluey / Oreo</h1>
+        <span class="sub">A small about-me page 💙</span>
       </div>
     </div>
-
-<!-- 🔽 EVERYTHING BELOW IS 100% YOUR ORIGINAL CONTENT 🔽 -->
-
-<section class="hero" role="region" aria-label="Intro">  
-  <h2>Hi, I’m Bluey (also known as Oreo)</h2>  
-  <p>  
-    Some people also call me <strong>Ace</strong> or <strong>Salty</strong> — all of these names are okay to use.  
-    This page is here so friends can understand me better and interact respectfully.  
-  </p>  
-
-  <div class="chips" aria-label="Quick facts">  
-    <div class="chip"><strong>Pronouns:</strong> he/him • they/them</div>  
-    <div class="chip"><strong>Identity:</strong> furry • gay • ace • demi</div>  
-    <div class="chip"><strong>Birthday:</strong> March 15th (I’m getting old 😅)</div>  
-    <div class="chip"><strong>Fav color:</strong> baby blue</div>  
-  </div>  
-</section>  
-
-<section class="grid" aria-label="Content">  
-  <!-- Mental health -->  
-  <article class="card span2">  
-    <h3>🧠 Mental Health</h3>  
-    <p>  
-      I live with several mental health challenges. It can be hard sometimes, but I do a lot to keep going.  
-      This doesn’t define me — it’s just part of my life.  
-    </p>  
-    <ul class="list">  
-      <li>OCD</li>  
-      <li>Depression</li>  
-      <li>Anxiety</li>  
-      <li>D.I.D (and more)</li>  
-    </ul>  
-  </article>  
-
-  <!-- DID explanation -->  
-  <article class="card span2">  
-    <h3>🧩 About D.I.D</h3>  
-    <p>  
-      Dissociative Identity Disorder (D.I.D) can develop as a response to long-term trauma, usually during childhood.  
-      It’s a protective coping mechanism when situations feel overwhelming or unsafe.  
-    </p>  
-    <div class="notice">  
-      <strong>Note:</strong> I’ve been diagnosed for about <strong>4 years</strong>, so I’m still learning about myself and my system.  
-      Respectful questions are welcome.  
-    </div>  
-  </article>  
-
-  <!-- Alters -->  
-  <article class="card span2">  
-    <h3>🌱 My System (3 Alters)</h3>  
-    <p class="tagline">Each alter matters. Please treat them with respect and follow boundaries.</p>  
-
-    <section class="alter">  
-      <h3>🛡 Max</h3>  
-      <p>  
-        Protective side of the system. Ace, aromantic, demi, and gay. Same age as the host/body.  
-        Quiet, observant, and can be sweet/caring (often a father-figure mindset).  
-      </p>  
-      <div class="notice danger">  
-        <strong>Boundary:</strong> Do <strong>not</strong> touch at all — he is the protective side.  
-      </div>  
-    </section>  
-
-    <section class="alter">  
-      <h3>📖 Drake</h3>  
-      <p>  
-        Gay, ace, aromantic, and demi. Same age as the host. Likes to read and draw.  
-        Often quiet. Not mute, but uses very short/minimal words when speaking.  
-      </p>  
-      <div class="notice">  
-        <strong>Boundary:</strong> Not very touchy — please ask first.  
-      </div>  
-    </section>  
-
-    <section class="alter">  
-      <h3>💙 Jamie</h3>  
-      <p>  
-        Age-locked at 8. Mute — in games like VRChat he uses chat-box.  
-        Clingy, kind, sweet, and asks lots of questions. Innocent, so please be careful.  
-        Can get shy/worried/nervous if crowded or overwhelmed. Sticks to one safe person.  
-        Loves baby blue and cuddles.  
-      </p>  
-      <div class="notice">  
-        <strong>Tip:</strong> Keep things calm and gentle. Give space if overwhelmed.  
-      </div>  
-    </section>  
-  </article>  
-
-  <!-- Boundaries -->  
-  <article class="card">  
-    <h3>🚧 Boundaries</h3>  
-    <p><strong>No matter what, please ask before anything.</strong></p>  
-    <ul class="list">  
-      <li>Petting</li>  
-      <li>Hugging</li>  
-      <li>Touching</li>  
-      <li>Adding me on VRChat</li>  
-      <li>Adding me on other websites/apps</li>  
-    </ul>  
-    <div class="notice">  
-      <strong>Consent matters</strong> every time — thank you for respecting it.  
-    </div>  
-  </article>  
-
-  <!-- Support -->  
-  <article class="card">  
-    <h3>🤍 How to Support Me</h3>  
-    <ul class="list">  
-      <li>If I go quiet, please don’t assume I’m upset</li>  
-      <li>Sometimes I need reassurance</li>  
-      <li>Giving me time helps more than pushing answers</li>  
-      <li>Patience means a lot to me</li>  
-    </ul>  
-  </article>  
-
-  <!-- Interests -->  
-  <article class="card span2">  
-    <h3>🎮 Interests & Comfort Things</h3>  
-    <ul class="list">  
-      <li><strong>Favorite color:</strong> baby blue</li>  
-      <li>Music</li>  
-      <li>Games (keeps my mind busy and helps me focus on something else)</li>  
-      <li>Photography</li>  
-      <li>Watching a movie quietly / muted</li>  
-    </ul>  
-  </article>  
-
-  <!-- System rules / safety -->  
-  <article class="card span2">  
-    <h3>📌 System Rules & Safety</h3>  
-    <div class="notice">  
-      <strong>Questions are okay:</strong> people can ask respectful questions — I’m still learning too.  
-    </div>  
-    <div style="height:10px"></div>  
-    <div class="notice danger">  
-      <strong>Please never:</strong> speak sexually, threaten, make comments about rape,  
-      accuse me of attention-seeking, or anything along those lines.  
-    </div>  
-  </article>  
-</section>  
-
-<footer>  
-  <div>Thanks for reading 💙</div>  
-  <div class="mini">Made for friends who care.</div>  
-</footer>
-
+    <div class="actions">
+      <button class="btn" id="listenBtn">🔊 Listen</button>
+      <button class="btn" id="stopBtn">⏹ Stop</button>
+      <button class="btn" id="themeToggle">🌓 Theme</button>
+      <a href="photos.html" class="btn">📸 Photos</a>
+    </div>
   </div>
 
-  <script>
-    (function () {
-      const root = document.documentElement;
-      const btn = document.getElementById('themeToggle');
+<section class="hero" role="region" aria-label="Intro">
+  <h2>Hi, I’m Bluey (also known as Oreo)</h2>
+  <p>
+    Some people also call me <strong>Ace</strong> or <strong>Salty</strong> — all of these names are okay to use.
+    This page is here so friends can understand me better and interact respectfully.
+  </p>
 
-      btn.addEventListener('click', () => {
-        const t = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', t);
-        localStorage.setItem('theme', t);
-      });
+  <div class="chips" aria-label="Quick facts">
+    <div class="chip"><strong>Pronouns:</strong> he/him • they/them</div>
+    <div class="chip"><strong>Identity:</strong> furry • gay • ace • demi</div>
+    <div class="chip"><strong>Birthday:</strong> March 15th (I’m getting old 😅)</div>
+    <div class="chip"><strong>Fav color:</strong> baby blue</div>
+  </div>
+</section>
 
-      const saved = localStorage.getItem('theme');
-      if(saved) root.setAttribute('data-theme', saved);
-    })();
+<section class="grid" aria-label="Content">
 
-    // ---------- TEXT TO SPEECH ----------
-    document.getElementById("listenBtn").addEventListener("click", () => {
-      speechSynthesis.cancel();
-      const text = document.querySelector(".container").innerText;
+  <article class="card span2">
+    <h3>🧠 Mental Health</h3>
+    <p>
+      I live with several mental health challenges. It can be hard sometimes, but I do a lot to keep going.
+      This doesn’t define me — it’s just part of my life.
+    </p>
+    <ul>
+      <li>OCD</li>
+      <li>Depression</li>
+      <li>Anxiety</li>
+      <li>D.I.D (and more)</li>
+    </ul>
+  </article>
 
-      const speech = new SpeechSynthesisUtterance(text);
-      speech.lang = "en-US";
-      speech.rate = 0.85;
-      speech.pitch = 1;
-      speech.volume = 1;
+  <article class="card span2">
+    <h3>🧩 About D.I.D</h3>
+    <p>
+      Dissociative Identity Disorder (D.I.D) can develop as a response to long-term trauma, usually during childhood.
+      It’s a protective coping mechanism when situations feel overwhelming or unsafe.
+    </p>
+    <div class="notice">
+      <strong>Note:</strong> I’ve been diagnosed for about <strong>4 years</strong>, so I’m still learning about myself and my system.
+      Respectful questions are welcome.
+    </div>
+  </article>
 
-      speechSynthesis.speak(speech);
+  <article class="card span2">
+    <h3>🌱 My System (3 Alters)</h3>
+    <p>Each alter matters. Please treat them with respect and follow boundaries.</p>
+
+    <section class="alter">
+      <h3>🛡 Max</h3>
+      <p>
+        Protective side of the system. Ace, aromantic, demi, and gay. Same age as the host/body.
+        Quiet, observant, and can be sweet/caring (often a father-figure mindset).
+      </p>
+      <div class="notice danger">
+        <strong>Boundary:</strong> Do <strong>not</strong> touch at all — he is the protective side.
+      </div>
+    </section>
+
+    <section class="alter">
+      <h3>📖 Drake</h3>
+      <p>
+        Gay, ace, aromantic, and demi. Same age as the host. Likes to read and draw.
+        Often quiet. Not mute, but uses very short/minimal words when speaking.
+      </p>
+      <div class="notice">
+        <strong>Boundary:</strong> Not very touchy — please ask first.
+      </div>
+    </section>
+
+    <section class="alter">
+      <h3>💙 Jamie</h3>
+      <p>
+        Age-locked at 8. Mute — in games like VRChat he uses chat-box.
+        Clingy, kind, sweet, and asks lots of questions. Innocent, so please be careful.
+        Can get shy/worried/nervous if crowded or overwhelmed. Sticks to one safe person.
+        Loves baby blue and cuddles.
+      </p>
+      <div class="notice">
+        <strong>Tip:</strong> Keep things calm and gentle. Give space if overwhelmed.
+      </div>
+    </section>
+  </article>
+
+  <article class="card">
+    <h3>🚧 Boundaries</h3>
+    <p><strong>No matter what, please ask before anything.</strong></p>
+    <ul>
+      <li>Petting</li>
+      <li>Hugging</li>
+      <li>Touching</li>
+      <li>Adding me on VRChat</li>
+      <li>Adding me on other websites/apps</li>
+    </ul>
+    <div class="notice">
+      <strong>Consent matters</strong> every time — thank you for respecting it.
+    </div>
+  </article>
+
+  <article class="card">
+    <h3>🤍 How to Support Me</h3>
+    <ul>
+      <li>If I go quiet, please don’t assume I’m upset</li>
+      <li>Sometimes I need reassurance</li>
+      <li>Giving me time helps more than pushing answers</li>
+      <li>Patience means a lot to me</li>
+    </ul>
+  </article>
+
+  <article class="card span2">
+    <h3>🎮 Interests & Comfort Things</h3>
+    <ul>
+      <li><strong>Favorite color:</strong> baby blue</li>
+      <li>Music</li>
+      <li>Games (keeps my mind busy and helps me focus on something else)</li>
+      <li>Photography</li>
+      <li>Watching a movie quietly / muted</li>
+    </ul>
+  </article>
+
+  <article class="card span2">
+    <h3>📌 System Rules & Safety</h3>
+    <div class="notice">
+      <strong>Questions are okay:</strong> people can ask respectful questions — I’m still learning too.
+    </div>
+    <div style="height:10px"></div>
+    <div class="notice danger">
+      <strong>Please never:</strong> speak sexually, threaten, make comments about rape,
+      accuse me of attention-seeking, or anything along those lines.
+    </div>
+  </article>
+
+  <article class="card">
+    <h3>🌟 Strengths (Not Just Struggles)</h3>
+    <ul>
+      <li>Loyal</li>
+      <li>Good listener</li>
+      <li>Creative</li>
+      <li>Protective</li>
+      <li>Observant</li>
+      <li>Helpful</li>
+      <li>Supportive</li>
+      <li>And much more</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h3>🌙 What Makes Me Happy / Helps Me Relax</h3>
+    <ul>
+      <li>Quiet company</li>
+      <li>Movies</li>
+      <li>Photography</li>
+      <li>Staring at the stars</li>
+      <li>Drawing</li>
+      <li>Listening to music</li>
+      <li>Being around my partner</li>
+    </ul>
+  </article>
+
+  <article class="card span2">
+    <h3>🤍 A Gentle Reminder</h3>
+    <div class="notice">
+      If I need space, it doesn’t mean you did something wrong.
+    </div>
+  </article>
+
+  <article class="card span2">
+    <h3>💬 How to Ask Me Questions</h3>
+    <ul>
+      <li>Please ask gently</li>
+      <li>One question at a time</li>
+      <li>It’s okay if I don’t answer everything</li>
+    </ul>
+    <div class="notice">
+      I appreciate people who care enough to learn.
+    </div>
+  </article>
+
+</section>
+
+<footer>
+  <div>Thanks for reading 💙</div>
+  <div class="mini">Made for friends who care.</div>
+</footer>
+
+</div>
+
+<script>
+  (function () {
+    const root = document.documentElement;
+    const btn = document.getElementById('themeToggle');
+
+    btn.addEventListener('click', () => {
+      const t = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
     });
 
-    document.getElementById("stopBtn").addEventListener("click", () => {
-      speechSynthesis.cancel();
-    });
-  </script>
+    const saved = localStorage.getItem('theme');
+    if(saved) root.setAttribute('data-theme', saved);
+  })();
+
+  document.getElementById("listenBtn").addEventListener("click", () => {
+    speechSynthesis.cancel();
+    const text = document.querySelector(".container").innerText;
+
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-US";
+    speech.rate = 0.85;
+    speech.pitch = 1;
+    speech.volume = 1;
+
+    speechSynthesis.speak(speech);
+  });
+
+  document.getElementById("stopBtn").addEventListener("click", () => {
+    speechSynthesis.cancel();
+  });
+</script>
 </body>
 </html>
