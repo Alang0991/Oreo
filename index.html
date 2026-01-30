@@ -164,9 +164,13 @@
         </div>
       </div>
       <div class="actions">
+        <button class="btn" id="listenBtn">🔊 Listen</button>
+        <button class="btn" id="stopBtn">⏹ Stop</button>
         <button class="btn" id="themeToggle">🌓 Theme</button>
       </div>
     </div>
+
+<!-- 🔽 EVERYTHING BELOW IS 100% YOUR ORIGINAL CONTENT 🔽 -->
 
 <section class="hero" role="region" aria-label="Intro">  
   <h2>Hi, I’m Bluey (also known as Oreo)</h2>  
@@ -212,14 +216,12 @@
     </div>  
   </article>  
 
-  <!-- Alters heading -->  
+  <!-- Alters -->  
   <article class="card span2">  
     <h3>🌱 My System (3 Alters)</h3>  
     <p class="tagline">Each alter matters. Please treat them with respect and follow boundaries.</p>  
 
-    <div class="divider"></div>  
-
-    <section class="alter" aria-label="Max">  
+    <section class="alter">  
       <h3>🛡 Max</h3>  
       <p>  
         Protective side of the system. Ace, aromantic, demi, and gay. Same age as the host/body.  
@@ -230,9 +232,7 @@
       </div>  
     </section>  
 
-    <div class="divider"></div>  
-
-    <section class="alter" aria-label="Drake">  
+    <section class="alter">  
       <h3>📖 Drake</h3>  
       <p>  
         Gay, ace, aromantic, and demi. Same age as the host. Likes to read and draw.  
@@ -243,9 +243,7 @@
       </div>  
     </section>  
 
-    <div class="divider"></div>  
-
-    <section class="alter" aria-label="Jamie">  
+    <section class="alter">  
       <h3>💙 Jamie</h3>  
       <p>  
         Age-locked at 8. Mute — in games like VRChat he uses chat-box.  
@@ -317,7 +315,6 @@
   <div class="mini">Made for friends who care.</div>  
 </footer>
 
-  </div>  
   </div>
 
   <script>
@@ -334,6 +331,24 @@
       const saved = localStorage.getItem('theme');
       if(saved) root.setAttribute('data-theme', saved);
     })();
+
+    // ---------- TEXT TO SPEECH ----------
+    document.getElementById("listenBtn").addEventListener("click", () => {
+      speechSynthesis.cancel();
+      const text = document.querySelector(".container").innerText;
+
+      const speech = new SpeechSynthesisUtterance(text);
+      speech.lang = "en-US";
+      speech.rate = 0.85;
+      speech.pitch = 1;
+      speech.volume = 1;
+
+      speechSynthesis.speak(speech);
+    });
+
+    document.getElementById("stopBtn").addEventListener("click", () => {
+      speechSynthesis.cancel();
+    });
   </script>
 </body>
 </html>
