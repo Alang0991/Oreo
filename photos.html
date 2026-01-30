@@ -6,21 +6,11 @@
   <title>Bluey / Oreo — Photos</title>
 
   <style>
-    :root{
-      color-scheme: light dark;
-      --bg:#0b1220;
-      --text:#e7eefc;
-      --card: rgba(255,255,255,.06);
-      --cardBorder: rgba(255,255,255,.12);
-      --accent:#6aa7ff;
-    }
-
-    *{ box-sizing:border-box; }
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: var(--bg);
-      color: var(--text);
+      background:#0b1220;
+      color:#e7eefc;
       line-height:1.55;
     }
 
@@ -38,9 +28,9 @@
     }
 
     .btn{
-      border:1px solid var(--cardBorder);
-      background: rgba(255,255,255,.04);
-      color:var(--text);
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.05);
+      color:#e7eefc;
       padding:10px 14px;
       border-radius:14px;
       text-decoration:none;
@@ -59,17 +49,12 @@
       height:160px;
       object-fit:cover;
       border-radius:18px;
-      border:1px solid var(--cardBorder);
-      background:var(--card);
+      border:1px solid rgba(255,255,255,.15);
     }
 
     @media (max-width:600px){
-      .btn{
-        min-height:44px;
-      }
-      .photo-grid img{
-        height:180px;
-      }
+      .btn{ min-height:44px; }
+      .photo-grid img{ height:180px; }
     }
   </style>
 </head>
@@ -78,13 +63,11 @@
   <div class="container">
     <div class="topbar">
       <h1>📸 Photos</h1>
-      <a class="btn" href="index.html">← Back</a>
+      <a href="index.html" class="btn">← Back</a>
     </div>
 
     <div class="photo-grid">
-      <img src="photos/photo1.jpg" alt="Photo">
-      <img src="photos/photo2.jpg" alt="Photo">
-      <img src="photos/photo3.jpg" alt="Photo">
+      <!-- GALLERY -->
     </div>
   </div>
 </body>
