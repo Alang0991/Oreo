@@ -1,0 +1,34 @@
+name: Build photo gallery
+
+on:
+  push:
+    paths:
+      - "photos/**"
+      - "photos.template.html"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Generate gallery
+      run: |
+        images=""
+        for img in photos/*; do
+          ext="${img##*.}"
+          if [[ "$ext" =~ ^(jpg|jpeg|png|webp|gif)$ ]]; then
+            images="$images<img src=\"$img\" alt=\"Photo\">"
+          fi
+        done
+
+        sed "s|{{GALLERY}}|$images|g" photos.template.html > photos.html
+
+    - name: Commit gallery
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add photos.html
+        git commit -m "Auto-update gallery" || exit 0
+        git push
