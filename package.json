@@ -1,1 +1,8 @@
-
+{
+  "name": "auto-photo-gallery",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-gallery.js"
+  }
+}
